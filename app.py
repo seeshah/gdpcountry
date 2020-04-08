@@ -100,8 +100,8 @@ with urlopen('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/D
 geojson=countries
 data = pd.read_csv(DATA_PATH.joinpath('data .csv'))
 # data = pd.read_csv('data .csv')
-# data = data.sort_values(by = 'TIME')
-# data = data[data['TIME'] > 2000]
+data = data.sort_values(by = 'TIME')
+data = data[data['TIME'] > 2000]
 
 
 # In[10]:
@@ -306,7 +306,7 @@ def map_chart(input1):
                                  mapbox_style='carto-positron',
                         color_continuous_scale='YlGn',zoom=0, title = '% GDP Spending in Countries', 
                                  opacity = 0.8
-                                )#px.colors.sequential.Plasma)
+                                )
 
     fig_map = go.Figure(fig_2)
     return fig_map
@@ -381,15 +381,6 @@ app.layout = html.Div(
             [
                 html.Div(
                     [
-                        
-#                         html.P([
-#                     html.Label("Choose Country"),
-#                     dcc.Dropdown(id = 'opt', options = opts,
-#                                 value = opts[0])
-#                         ], style = {'width': '400px',
-#                                     'fontSize' : '20px',
-#                                     'padding-left' : '100px',
-#                                     'display': 'inline-block'}),
                        
                         html.P([
                     html.Label("Choose Perspective"),
