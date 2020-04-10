@@ -19,23 +19,12 @@ import pathlib
 
 
 
-
-# In[2]:
-
-
-# external_stylesheets = ['https://github.com/cshah95/gdp_spending/blob/master/s1.css']
 app = dash.Dash(__name__)
-
-
-# In[ ]:
-
 
 # Path
 BASE_PATH = pathlib.Path(__file__).parent.resolve()
 DATA_PATH = BASE_PATH.joinpath("data").resolve()
 
-
-# In[ ]:
 
 
 # Step 2. Import the dataset
@@ -44,21 +33,7 @@ filepath_home = pd.read_csv(DATA_PATH.joinpath('share-of-deaths-homicides.csv'))
 filepath_emission = pd.read_csv(DATA_PATH.joinpath('co-emissions-per-capita.csv'))
 
 
-# In[3]:
-
-
-# Step 2. Import the dataset
-# filepath_life = 'https://raw.githubusercontent.com/ashaypathak96/project/master/life-expectancy.csv'
-# filepath_life= 'life-expectancy.csv'
-# filepath_home = 'share-of-deaths-homicides.csv'
-# filepath_emission = 'co-emissions-per-capita.csv'
-
-
-# In[4]:
-
-
 def data(d,y):
-    # d = pd.read_csv(x)
     if y == 'Per capita CO₂ emissions (tonnes per capita)':
         d['randNumCol'] = np.random.randint(100, 1000, d.shape[0])/1000
         y = 'randNumCol'
@@ -389,7 +364,18 @@ app.layout = html.Div(
                         ], style = {'width': '400px',
                                     'fontSize' : '20px',
                                     'padding-left' : '100px',
+                                    'display': 'inline-block'}),
+                          
+                        html.P([
+                    html.Label("Choose Perspective"),
+                    dcc.Dropdown(id = 'opt_1', options = opts_map,
+                                value = opts_map[0])
+                        ], style = {'width': '400px',
+                                    'fontSize' : '20px',
+                                    'padding-left' : '100px',
                                     'display': 'inline-block'})
+                        
+                        
                         
                         
                     ],
@@ -467,12 +453,7 @@ if __name__ == '__main__':
     app.run_server(debug=False)
 
 
-# In[121]:
 
-
-
-
-# In[ ]:
 
 
 
