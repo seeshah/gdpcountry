@@ -357,10 +357,10 @@ app.layout = html.Div(
                 html.Div(
                     [
                        
-                        html.P([
-                    html.Label("Choose Perspective"),
-                    dcc.Dropdown(id = 'opt_1', options = opts_map,
-                                value = opts_map[0])
+                    html.P([
+                    html.Label("Choose Country"),
+                    dcc.Dropdown(id = 'opt', options = opts,
+                                value = opts[0])
                         ], style = {'width': '400px',
                                     'fontSize' : '20px',
                                     'padding-left' : '100px',
