@@ -110,7 +110,7 @@ def line_chart(input1):
 
 def bar_chart(input1,data_canada):
     a = data_canada[data_canada['LOCATION']==input1]
-    fig_bar = go.Bar(x=a["SUBJECT"],y=a["Value"])
+    fig_bar = go.Bar(x=a["Value"],y=a["SUBJECT"], orientation = 'h')
     fig_map_1 = go.Figure(fig_bar)
     fig_map_1.update_layout(
         title="% GDP Spending in sectors"
